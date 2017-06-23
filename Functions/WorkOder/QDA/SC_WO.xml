@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PBS_SCHEMA SCHEMA_ID="SC_WO" LOOK_UP="" DESCRIPTN="Work order" DAG="" SCHEMA_STATUS="">
+  <FIELD_TEXT>
+    <row table="SC_WO" node="WO_ID" name="woId" type="N1" />
+    <row table="SC_WO" node="WO_TYPE" name="woType" type="N1" />
+    <row table="SC_WO" node="WO_STATUS" name="woStatus" type="N1" />
+    <row table="SC_WO" node="REFERENCE_NO" name="referenceNo" type="N1" />
+    <row table="SC_WO" node="CLIENT_ID" name="clientId" type="N1" />
+    <row table="SC_WO" node="CONTACT_ID" name="contactId" type="N1" />
+    <row table="SC_WO" node="CLIENT_NAME" name="clientName" type="N1" />
+    <row table="SC_WO" node="Contact_NAME" name="contactName" type="N1" />
+    <row table="SC_WO" node="ADDRESS" name="address" type="N1" />
+    <row table="SC_WO" node="MOBILE" name="mobile" type="N1" />
+    <row table="SC_WO" node="PHONE" name="phone" type="N1" />
+    <row table="SC_WO" node="EMAIL" name="email" type="N1" />
+    <row table="SC_WO" node="WO_DATE" name="woDate" type="Date" />
+    <row table="SC_WO" node="WO_TIME" name="woTime" type="N1" />
+    <row table="SC_WO" node="WO_DUE_DATE" name="woDueDate" type="Date" />
+    <row table="SC_WO" node="WO_DUE_TIME" name="woDueTime" type="N1" />
+    <row table="SC_WO" node="LOC_CODE" name="locCode" type="N1" />
+    <row table="SC_WO" node="EQU_CODE" name="equCode" type="N1" />
+    <row table="SC_WO" node="PART_NO" name="partNo" type="N1" />
+    <row table="SC_WO" node="SERIAL_NO" name="serialNo" type="N1" />
+    <row table="SC_WO" node="BAR_CODE" name="barCode" type="N1" />
+    <row table="SC_WO" node="EQU_DESC" name="equDesc" type="N1" />
+    <row table="SC_WO" node="PROBLEM" name="problem" type="N1" />
+    <row table="SC_WO" node="REMEDY" name="remedy" type="N1" />
+    <row table="SC_WO" node="WOR_NOTES" name="worNotes" type="N1" />
+    <row table="SC_WO" node="RECEIVED_BY" name="receivedBy" type="N1" />
+    <row table="SC_WO" node="PROCESS_BY" name="processBy" type="N1" />
+    <row table="SC_WO" node="EXT_DATE1" name="extDate1" type="Date" />
+    <row table="SC_WO" node="EXT_DATE2" name="extDate2" type="Date" />
+    <row table="SC_WO" node="EXT_DATE3" name="extDate3" type="Date" />
+    <row table="SC_WO" node="EXT_DATE4" name="extDate4" type="Date" />
+    <row table="SC_WO" node="EXT_DATE5" name="extDate5" type="Date" />
+    <row table="SC_WO" node="EXT_VALUE1" name="extValue1" type="N1" />
+    <row table="SC_WO" node="EXT_VALUE2" name="extValue2" type="N1" />
+    <row table="SC_WO" node="EXT_VALUE3" name="extValue3" type="N1" />
+    <row table="SC_WO" node="EXT_VALUE4" name="extValue4" type="N1" />
+    <row table="SC_WO" node="EXT_VALUE5" name="extValue5" type="N1" />
+    <row table="SC_WO" node="NC_WO0" name="ncWo0" type="N1" />
+    <row table="SC_WO" node="NC_WO1" name="ncWo1" type="N1" />
+    <row table="SC_WO" node="NC_WO2" name="ncWo2" type="N1" />
+    <row table="SC_WO" node="NC_WO3" name="ncWo3" type="N1" />
+    <row table="SC_WO" node="NC_WO4" name="ncWo4" type="N1" />
+    <row table="SC_WO" node="NC_WO5" name="ncWo5" type="N1" />
+    <row table="SC_WO" node="NC_WO6" name="ncWo6" type="N1" />
+    <row table="SC_WO" node="NC_WO7" name="ncWo7" type="N1" />
+    <row table="SC_WO" node="NC_WO8" name="ncWo8" type="N1" />
+    <row table="SC_WO" node="NC_WO9" name="ncWo9" type="N1" />
+    <row table="SC_WO" node="UPDATED" name="updated" type="Date" />
+    <row table="SC_WO" node="UDPATED_BY" name="updatedBy" type="N1" />
+
+  </FIELD_TEXT>
+  <FROM_TEXT>
+    <row fromcode="SC_WO" lookup="pbs_SC_WO_XXX" />
+  </FROM_TEXT>
+</PBS_SCHEMA>
+
+
+

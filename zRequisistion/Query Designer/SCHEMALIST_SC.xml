@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PBS_SCHEMA>
+
+  <row table="SC_WO" Description="Work Order" module="SC"/>
+  <row table="SC_WOE" Description="Work Order Event" module="SC"/>
+  <row table="SC_WOL" Description="Work Order Labor" module="SC"/>
+  <row table="SC_WOP" Description="Work Order Parts" module="SC"/>
+  
+</PBS_SCHEMA>

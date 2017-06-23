@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PBS_SCHEMA SCHEMA_ID="SC_WOE" LOOK_UP="" DESCRIPTN="Work order Event" DAG="" SCHEMA_STATUS="">
+  <FIELD_TEXT>
+    <row table="SC_WOE" node="LINE_NO" name="LineNo" type="N1" />
+    <row table="SC_WOE" node="WO_ID" name="WoId" type="N1" />
+    <row table="SC_WOE" node="EVENT_TYPE" name="EventType" type="N1" />
+    <row table="SC_WOE" node="EVENT_DATE" name="EventDate" type="Date" />
+    <row table="SC_WOE" node="EVENT_TIME" name="EventTime" type="N1" />
+    <row table="SC_WOE" node="EMPL_CODE" name="EmplCode" type="N1" />
+    <row table="SC_WOE" node="DESCRIPTN1" name="Descriptn1" type="N1" />
+    <row table="SC_WOE" node="DESCRIPTN2" name="Descriptn2" type="N1" />
+    <row table="SC_WOE" node="DESCRIPTN3" name="Descriptn3" type="N1" />
+    <row table="SC_WOE" node="DESCRIPTN4" name="Descriptn4" type="N1" />
+    <row table="SC_WOE" node="DESCRIPTN5" name="Descriptn5" type="N1" />
+    <row table="SC_WOE" node="NOTES" name="Notes" type="N1" />
+    <row table="SC_WOE" node="UPDATED" name="Updated" type="Date" />
+    <row table="SC_WOE" node="UPDATED_BY" name="UpdatedBy" type="N1" />
+    <row table="SC_WOE" node="TIME_STAMP" name="TimeStamp" type="N1" />
+
+  </FIELD_TEXT>
+  <FROM_TEXT>
+    <row fromcode="SC_WOE" lookup="pbs_SC_WOE_XXX" />
+  </FROM_TEXT>
+</PBS_SCHEMA>
+
+
+

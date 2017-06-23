@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PBS_SCHEMA SCHEMA_ID="SC_WOP" LOOK_UP="" DESCRIPTN="Work order Parts" DAG="" SCHEMA_STATUS="">
+  <FIELD_TEXT>
+    <row table="SC_WOP" node="LINE_NO" name="LineNo" type="N1" />
+    <row table="SC_WOP" node="WO_ID" name="WoId" type="N1" />
+    <row table="SC_WOP" node="ITEM_CODE" name="ItemCode" type="N1" />
+    <row table="SC_WOP" node="LOCATION" name="Location" type="N1" />
+    <row table="SC_WOP" node="ISSUE_DATE" name="IssueDate" type="Date" />
+    <row table="SC_WOP" node="ISSUE_BY" name="IssueBy" type="N1" />
+    <row table="SC_WOP" node="PART_NO" name="PartNo" type="N1" />
+    <row table="SC_WOP" node="DESCRIPTN" name="Descriptn" type="N1" />
+    <row table="SC_WOP" node="UNIT" name="Unit" type="N1" />
+    <row table="SC_WOP" node="QTY" name="Qty" type="N1" />
+    <row table="SC_WOP" node="CONV_CODE" name="ConvCode" type="N1" />
+    <row table="SC_WOP" node="CONV_RATE" name="ConvRate" type="N1" />
+    <row table="SC_WOP" node="TRANS_AMT" name="TransAmt" type="N1" />
+    <row table="SC_WOP" node="AMOUNT" name="Amount" type="N1" />
+    <row table="SC_WOP" node="VALUE1" name="Value1" type="N1" />
+    <row table="SC_WOP" node="VALUE2" name="Value2" type="N1" />
+    <row table="SC_WOP" node="VALUE3" name="Value3" type="N1" />
+    <row table="SC_WOP" node="VALUE4" name="Value4" type="N1" />
+    <row table="SC_WOP" node="VALUE5" name="Value5" type="N1" />
+    <row table="SC_WOP" node="CHARGE" name="Charge" type="N1" />
+    <row table="SC_WOP" node="NOTES" name="Notes" type="N1" />
+    <row table="SC_WOP" node="UPDATED" name="Updated" type="Date" />
+    <row table="SC_WOP" node="UPDATE_BY" name="UpdateBy" type="N1" />
+    <row table="SC_WOP" node="TIME_STAMP" name="TimeStamp" type="N1" />
+
+  </FIELD_TEXT>
+  <FROM_TEXT>
+    <row fromcode="SC_WOP" lookup="pbs_SC_WOP_XXX" />
+  </FROM_TEXT>
+</PBS_SCHEMA>
+
+
+

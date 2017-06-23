@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PBS_SCHEMA SCHEMA_ID="SC_WOL" LOOK_UP="" DESCRIPTN="Work order Labor" DAG="" SCHEMA_STATUS="">
+  <FIELD_TEXT>
+    <row table="SC_WOL" node="LINE_NO" name="LineNo" type="N1" />
+    <row table="SC_WOL" node="WO_ID" name="WoId" type="N1" />
+    <row table="SC_WOL" node="SERVICE_CODE" name="ServiceCode" type="N1" />
+    <row table="SC_WOL" node="DESCRIPTN" name="Descriptn" type="N1" />
+    <row table="SC_WOL" node="ASSIGN_TO" name="AssignTo" type="N1" />
+    <row table="SC_WOL" node="WORKING_HOURS" name="WorkingHours" type="N1" />
+    <row table="SC_WOL" node="RATE" name="Rate" type="N1" />
+    <row table="SC_WOL" node="CONV_CODE" name="ConvCode" type="N1" />
+    <row table="SC_WOL" node="CONV_RATE" name="ConvRate" type="N1" />
+    <row table="SC_WOL" node="TRANS_AMT" name="TransAmt" type="N1" />
+    <row table="SC_WOL" node="AMOUNT" name="Amount" type="N1" />
+    <row table="SC_WOL" node="VALUE1" name="Value1" type="N1" />
+    <row table="SC_WOL" node="VALUE2" name="Value2" type="N1" />
+    <row table="SC_WOL" node="VALUE3" name="Value3" type="N1" />
+    <row table="SC_WOL" node="VALUE4" name="Value4" type="N1" />
+    <row table="SC_WOL" node="VALUE5" name="Value5" type="N1" />
+    <row table="SC_WOL" node="CHARGE" name="Charge" type="N1" />
+    <row table="SC_WOL" node="NOTES" name="Notes" type="N1" />
+    <row table="SC_WOL" node="UPDATED" name="Updated" type="Date" />
+    <row table="SC_WOL" node="UPDATE_BY" name="UpdateBy" type="N1" />
+    <row table="SC_WOL" node="TIME_STAMP" name="TimeStamp" type="N1" />
+
+  </FIELD_TEXT>
+  <FROM_TEXT>
+    <row fromcode="SC_WOL" lookup="pbs_SC_WOL_XXX" />
+  </FROM_TEXT>
+</PBS_SCHEMA>
+
+
+

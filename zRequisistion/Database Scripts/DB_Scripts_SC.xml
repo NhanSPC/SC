@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Root>
+  <!--Work Order-->
+  <DBO name="pbs_SC_WO_{XXX}" type="U">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id=OBJECT_ID(N'dbo.[pbs_SC_WO_{XXX}]'))
+      BEGIN
+      CREATE TABLE [dbo].[pbs_SC_WO_{XXX}](
+      [WO_ID] [int] IDENTITY(1,1) NOT NULL,
+      [WO_TYPE] [varchar](5) NOT NULL,
+      [WO_STATUS] [varchar](15) NOT NULL,
+      [REFERENCE_NO] [varchar](15) NOT NULL,
+      [CLIENT_ID] [varchar](15) NOT NULL,
+      [CONTACT_ID] [varchar](15) NOT NULL,
+      [CLIENT_NAME] [nvarchar](50) NOT NULL,
+      [CONTACT_NAME] [nvarchar](50) NOT NULL,
+      [ADDRESS] [nvarchar](200) NOT NULL,
+      [MOBILE] [nvarchar](50) NOT NULL,
+      [PHONE] [nvarchar](50) NOT NULL,
+      [EMAIL] [nvarchar](50) NOT NULL,
+      [WO_DATE] [int] NOT NULL,
+      [WO_TIME] [int] NOT NULL,
+      [WO_DUE_DATE] [int] NOT NULL,
+      [WO_DUE_TIME] [int] NOT NULL,
+      [LOC_CODE] [varchar](15) NOT NULL,
+      [EQU_CODE] [varchar](15) NOT NULL,
+      [PART_NO] [nvarchar](50) NOT NULL,
+      [SERIAL_NO] [varchar](30) NOT NULL,
+      [BAR_CODE] [varchar](30) NOT NULL,
+      [EQU_DESC] [nvarchar](100) NOT NULL,
+      [PROBLEM] [nvarchar](200) NOT NULL,
+      [REMEDY] [nvarchar](200) NOT NULL,
+      [WOR_NOTES] [nvarchar](100) NOT NULL,
+      [RECEIVED_BY] [varchar](15) NOT NULL,
+      [PROCESS_BY] [varchar](15) NOT NULL,
+      [EXT_DATE1] [int] NOT NULL,
+      [EXT_DATE2] [int] NOT NULL,
+      [EXT_DATE3] [int] NOT NULL,
+      [EXT_DATE4] [int] NOT NULL,
+      [EXT_DATE5] [int] NOT NULL,
+      [EXT_VALUE1] [numeric](18, 3) NOT NULL,
+      [EXT_VALUE2] [numeric](18, 3) NOT NULL,
+      [EXT_VALUE3] [numeric](18, 3) NOT NULL,
+      [EXT_VALUE4] [numeric](18, 3) NOT NULL,
+      [EXT_VALUE5] [numeric](18, 3) NOT NULL,
+      [NC_WO0] [varchar](15) NOT NULL,
+      [NC_WO1] [varchar](15) NOT NULL,
+      [NC_WO2] [varchar](15) NOT NULL,
+      [NC_WO3] [varchar](15) NOT NULL,
+      [NC_WO4] [varchar](15) NOT NULL,
+      [NC_WO5] [varchar](15) NOT NULL,
+      [NC_WO6] [varchar](15) NOT NULL,
+      [NC_WO7] [varchar](15) NOT NULL,
+      [NC_WO8] [varchar](15) NOT NULL,
+      [NC_WO9] [varchar](15) NOT NULL,
+      [UPDATED] [int] NOT NULL,
+      [UPDATED_BY] [varchar](15) NOT NULL,
+      [TIME_STAMP] [timestamp] NULL,
+      CONSTRAINT [PK_pbs_SC_WO_{XXX}] PRIMARY KEY CLUSTERED
+      (
+      [WO_ID] ASC
+      )
+      )
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_SC_WO_{XXX}_Insert" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[pbs_SC_WO_{XXX}_Insert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [pbs_SC_WO_{XXX}_Insert]
+      @WO_ID int output,
+      @WO_TYPE varchar(5),
+      @WO_STATUS varchar(15),
+      @REFERENCE_NO varchar(15),
+      @CLIENT_ID varchar(15),
+      @CONTACT_ID varchar(15),
+      @CLIENT_NAME nvarchar (50),
+      @CONTACT_NAME nvarchar (50),
+      @ADDRESS nvarchar (200),
+      @MOBILE nvarchar (50),
+      @PHONE nvarchar (50),
+      @EMAIL nvarchar (50),
+      @WO_DATE int,
+      @WO_TIME int,
+      @WO_DUE_DATE int,
+      @WO_DUE_TIME int,
+      @LOC_CODE varchar(15),
+      @EQU_CODE varchar(15),
+      @PART_NO nvarchar (50),
+      @SERIAL_NO varchar(30),
+      @BAR_CODE varchar(30),
+      @EQU_DESC nvarchar (100),
+      @PROBLEM nvarchar (200),
+      @REMEDY nvarchar (200),
+      @WOR_NOTES nvarchar (100),
+      @RECEIVED_BY varchar(15),
+      @PROCESS_BY varchar(15),
+      @EXT_DATE1 int,
+      @EXT_DATE2 int,
+      @EXT_DATE3 int,
+      @EXT_DATE4 int,
+      @EXT_DATE5 int,
+      @EXT_VALUE1 numeric(18, 3),
+      @EXT_VALUE2 numeric(18, 3),
+      @EXT_VALUE3 numeric(18, 3),
+      @EXT_VALUE4 numeric(18, 3),
+      @EXT_VALUE5 numeric(18, 3),
+      @NC_WO0 varchar(15),
+      @NC_WO1 varchar(15),
+      @NC_WO2 varchar(15),
+      @NC_WO3 varchar(15),
+      @NC_WO4 varchar(15),
+      @NC_WO5 varchar(15),
+      @NC_WO6 varchar(15),
+      @NC_WO7 varchar(15),
+      @NC_WO8 varchar(15),
+      @NC_WO9 varchar(15),
+      @UPDATED int,
+      @UPDATED_BY varchar(15)
+      AS
+
+      SET NOCOUNT ON
+      INSERT INTO [pbs_SC_WO_{XXX}] ([WO_TYPE],
+      [WO_STATUS],
+      [REFERENCE_NO],
+      [CLIENT_ID],
+      [CONTACT_ID],
+      [CLIENT_NAME],
+      [CONTACT_NAME],
+      [ADDRESS],
+      [MOBILE],
+      [PHONE],
+      [EMAIL],
+      [WO_DATE],
+      [WO_TIME],
+      [WO_DUE_DATE],
+      [WO_DUE_TIME],
+      [LOC_CODE],
+      [EQU_CODE],
+      [PART_NO],
+      [SERIAL_NO],
+      [BAR_CODE],
+      [EQU_DESC],
+      [PROBLEM],
+      [REMEDY],
+      [WOR_NOTES],
+      [RECEIVED_BY],
+      [PROCESS_BY],
+      [EXT_DATE1],
+      [EXT_DATE2],
+      [EXT_DATE3],
+      [EXT_DATE4],
+      [EXT_DATE5],
+      [EXT_VALUE1],
+      [EXT_VALUE2],
+      [EXT_VALUE3],
+      [EXT_VALUE4],
+      [EXT_VALUE5],
+      [NC_WO0],
+      [NC_WO1],
+      [NC_WO2],
+      [NC_WO3],
+      [NC_WO4],
+      [NC_WO5],
+      [NC_WO6],
+      [NC_WO7],
+      [NC_WO8],
+      [NC_WO9],
+      [UPDATED],
+      [UPDATED_BY])
+      VALUES (@WO_TYPE,
+      @WO_STATUS,
+      @REFERENCE_NO,
+      @CLIENT_ID,
+      @CONTACT_ID,
+      @CLIENT_NAME,
+      @CONTACT_NAME,
+      @ADDRESS,
+      @MOBILE,
+      @PHONE,
+      @EMAIL,
+      @WO_DATE,
+      @WO_TIME,
+      @WO_DUE_DATE,
+      @WO_DUE_TIME,
+      @LOC_CODE,
+      @EQU_CODE,
+      @PART_NO,
+      @SERIAL_NO,
+      @BAR_CODE,
+      @EQU_DESC,
+      @PROBLEM,
+      @REMEDY,
+      @WOR_NOTES,
+      @RECEIVED_BY,
+      @PROCESS_BY,
+      @EXT_DATE1,
+      @EXT_DATE2,
+      @EXT_DATE3,
+      @EXT_DATE4,
+      @EXT_DATE5,
+      @EXT_VALUE1,
+      @EXT_VALUE2,
+      @EXT_VALUE3,
+      @EXT_VALUE4,
+      @EXT_VALUE5,
+      @NC_WO0,
+      @NC_WO1,
+      @NC_WO2,
+      @NC_WO3,
+      @NC_WO4,
+      @NC_WO5,
+      @NC_WO6,
+      @NC_WO7,
+      @NC_WO8,
+      @NC_WO9,
+      @UPDATED,
+      @UPDATED_BY)
+
+      SET @WO_ID = SCOPE_IDENTITY()
+
+      '
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_SC_WO_{XXX}_Update" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[pbs_SC_WO_{XXX}_Update]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [pbs_SC_WO_{XXX}_Update]
+      @WO_ID int,
+      @WO_TYPE varchar(5),
+      @WO_STATUS varchar(15),
+      @REFERENCE_NO varchar(15),
+      @CLIENT_ID varchar(15),
+      @CONTACT_ID varchar(15),
+      @CLIENT_NAME nvarchar (50),
+      @CONTACT_NAME nvarchar (50),
+      @ADDRESS nvarchar (200),
+      @MOBILE nvarchar (50),
+      @PHONE nvarchar (50),
+      @EMAIL nvarchar (50),
+      @WO_DATE int,
+      @WO_TIME int,
+      @WO_DUE_DATE int,
+      @WO_DUE_TIME int,
+      @LOC_CODE varchar(15),
+      @EQU_CODE varchar(15),
+      @PART_NO nvarchar (50),
+      @SERIAL_NO varchar(30),
+      @BAR_CODE varchar(30),
+      @EQU_DESC nvarchar (100),
+      @PROBLEM nvarchar (200),
+      @REMEDY nvarchar (200),
+      @WOR_NOTES nvarchar (100),
+      @RECEIVED_BY varchar(15),
+      @PROCESS_BY varchar(15),
+      @EXT_DATE1 int,
+      @EXT_DATE2 int,
+      @EXT_DATE3 int,
+      @EXT_DATE4 int,
+      @EXT_DATE5 int,
+      @EXT_VALUE1 numeric(18, 3),
+      @EXT_VALUE2 numeric(18, 3),
+      @EXT_VALUE3 numeric(18, 3),
+      @EXT_VALUE4 numeric(18, 3),
+      @EXT_VALUE5 numeric(18, 3),
+      @NC_WO0 varchar(15),
+      @NC_WO1 varchar(15),
+      @NC_WO2 varchar(15),
+      @NC_WO3 varchar(15),
+      @NC_WO4 varchar(15),
+      @NC_WO5 varchar(15),
+      @NC_WO6 varchar(15),
+      @NC_WO7 varchar(15),
+      @NC_WO8 varchar(15),
+      @NC_WO9 varchar(15),
+      @UPDATED int,
+      @UPDATED_BY varchar(15)
+      AS
+
+      SET NOCOUNT ON
+      UPDATE [pbs_SC_WO_{XXX}] SET [WO_TYPE] = @WO_TYPE,
+      [WO_STATUS] = @WO_STATUS,
+      [REFERENCE_NO] = @REFERENCE_NO,
+      [CLIENT_ID] = @CLIENT_ID,
+      [CONTACT_ID] = @CONTACT_ID,
+      [CLIENT_NAME] = @CLIENT_NAME,
+      [CONTACT_NAME] = @CONTACT_NAME,
+      [ADDRESS] = @ADDRESS,
+      [MOBILE] = @MOBILE,
+      [PHONE] = @PHONE,
+      [EMAIL] = @EMAIL,
+      [WO_DATE] = @WO_DATE,
+      [WO_TIME] = @WO_TIME,
+      [WO_DUE_DATE] = @WO_DUE_DATE,
+      [WO_DUE_TIME] = @WO_DUE_TIME,
+      [LOC_CODE] = @LOC_CODE,
+      [EQU_CODE] = @EQU_CODE,
+      [PART_NO] = @PART_NO,
+      [SERIAL_NO] = @SERIAL_NO,
+      [BAR_CODE] = @BAR_CODE,
+      [EQU_DESC] = @EQU_DESC,
+      [PROBLEM] = @PROBLEM,
+      [REMEDY] = @REMEDY,
+      [WOR_NOTES] = @WOR_NOTES,
+      [RECEIVED_BY] = @RECEIVED_BY,
+      [PROCESS_BY] = @PROCESS_BY,
+      [EXT_DATE1] = @EXT_DATE1,
+      [EXT_DATE2] = @EXT_DATE2,
+      [EXT_DATE3] = @EXT_DATE3,
+      [EXT_DATE4] = @EXT_DATE4,
+      [EXT_DATE5] = @EXT_DATE5,
+      [EXT_VALUE1] = @EXT_VALUE1,
+      [EXT_VALUE2] = @EXT_VALUE2,
+      [EXT_VALUE3] = @EXT_VALUE3,
+      [EXT_VALUE4] = @EXT_VALUE4,
+      [EXT_VALUE5] = @EXT_VALUE5,
+      [NC_WO0] = @NC_WO0,
+      [NC_WO1] = @NC_WO1,
+      [NC_WO2] = @NC_WO2,
+      [NC_WO3] = @NC_WO3,
+      [NC_WO4] = @NC_WO4,
+      [NC_WO5] = @NC_WO5,
+      [NC_WO6] = @NC_WO6,
+      [NC_WO7] = @NC_WO7,
+      [NC_WO8] = @NC_WO8,
+      [NC_WO9] = @NC_WO9,
+      [UPDATED] = @UPDATED,
+      [UPDATED_BY] = @UPDATED_BY
+      WHERE [WO_ID] = @WO_ID
+      '
+      END
+    </Install>
+  </DBO>
+  
+  <!--Work Order Event-->
+  <DBO name="pbs_SC_WO_EVENT_{XXX}" type="U">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id=OBJECT_ID(N'dbo.[pbs_SC_WO_EVENT_{XXX}]'))
+      BEGIN
+      CREATE TABLE [dbo].[pbs_SC_WO_EVENT_{XXX}](
+      [LINE_NO] [int] IDENTITY(1,1) NOT NULL,
+      [WO_ID] [int] NOT NULL,
+      [EVENT_TYPE] [varchar](10) NOT NULL,
+      [EVENT_DATE] [int] NOT NULL,
+      [EVENT_TIME] [int] NOT NULL,
+      [EMPL_CODE] [varchar](15) NOT NULL,
+      [DESCRIPTN1] [nvarchar](100) NOT NULL,
+      [DESCRIPTN2] [nvarchar](100) NOT NULL,
+      [DESCRIPTN3] [nvarchar](100) NOT NULL,
+      [DESCRIPTN4] [nvarchar](100) NOT NULL,
+      [DESCRIPTN5] [nvarchar](100) NOT NULL,
+      [NOTES] [ntext] NOT NULL,
+      [UPDATED] [int] NOT NULL,
+      [UPDATED_BY] [varchar](15) NOT NULL,
+      [TIME_STAMP] [timestamp] NULL,
+      CONSTRAINT [PK_pbs_SC_WO_EVENT_{XXX}] PRIMARY KEY CLUSTERED
+      (
+      [LINE_NO] ASC
+      )
+      )
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_SC_WO_EVENT_{XXX}_Insert" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[pbs_SC_WO_EVENT_{XXX}_Insert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [pbs_SC_WO_EVENT_{XXX}_Insert]
+      @LINE_NO int output,
+      @WO_ID int,
+      @EVENT_TYPE varchar(10),
+      @EVENT_DATE int,
+      @EVENT_TIME int,
+      @EMPL_CODE varchar(15),
+      @DESCRIPTN1 nvarchar (100),
+      @DESCRIPTN2 nvarchar (100),
+      @DESCRIPTN3 nvarchar (100),
+      @DESCRIPTN4 nvarchar (100),
+      @DESCRIPTN5 nvarchar (100),
+      @NOTES ntext,
+      @UPDATED int,
+      @UPDATED_BY varchar(15)
+      AS
+
+      SET NOCOUNT ON
+      INSERT INTO [pbs_SC_WO_EVENT_{XXX}] ([WO_ID],
+      [EVENT_TYPE],
+      [EVENT_DATE],
+      [EVENT_TIME],
+      [EMPL_CODE],
+      [DESCRIPTN1],
+      [DESCRIPTN2],
+      [DESCRIPTN3],
+      [DESCRIPTN4],
+      [DESCRIPTN5],
+      [NOTES],
+      [UPDATED],
+      [UPDATED_BY])
+      VALUES (@WO_ID,
+      @EVENT_TYPE,
+      @EVENT_DATE,
+      @EVENT_TIME,
+      @EMPL_CODE,
+      @DESCRIPTN1,
+      @DESCRIPTN2,
+      @DESCRIPTN3,
+      @DESCRIPTN4,
+      @DESCRIPTN5,
+      @NOTES,
+      @UPDATED,
+      @UPDATED_BY)
+
+      SET @LINE_NO = SCOPE_IDENTITY()
+
+      '
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_SC_WO_EVENT_{XXX}_Update" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[pbs_SC_WO_EVENT_{XXX}_Update]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [pbs_SC_WO_EVENT_{XXX}_Update]
+      @LINE_NO int,
+      @WO_ID int,
+      @EVENT_TYPE varchar(10),
+      @EVENT_DATE int,
+      @EVENT_TIME int,
+      @EMPL_CODE varchar(15),
+      @DESCRIPTN1 nvarchar (100),
+      @DESCRIPTN2 nvarchar (100),
+      @DESCRIPTN3 nvarchar (100),
+      @DESCRIPTN4 nvarchar (100),
+      @DESCRIPTN5 nvarchar (100),
+      @NOTES ntext,
+      @UPDATED int,
+      @UPDATED_BY varchar(15)
+      AS
+
+      SET NOCOUNT ON
+      UPDATE [pbs_SC_WO_EVENT_{XXX}] SET [WO_ID] = @WO_ID,
+      [EVENT_TYPE] = @EVENT_TYPE,
+      [EVENT_DATE] = @EVENT_DATE,
+      [EVENT_TIME] = @EVENT_TIME,
+      [EMPL_CODE] = @EMPL_CODE,
+      [DESCRIPTN1] = @DESCRIPTN1,
+      [DESCRIPTN2] = @DESCRIPTN2,
+      [DESCRIPTN3] = @DESCRIPTN3,
+      [DESCRIPTN4] = @DESCRIPTN4,
+      [DESCRIPTN5] = @DESCRIPTN5,
+      [NOTES] = @NOTES,
+      [UPDATED] = @UPDATED,
+      [UPDATED_BY] = @UPDATED_BY
+      WHERE [LINE_NO] = @LINE_NO
+      '
+      END
+    </Install>
+  </DBO>
+  
+  <!--Work Order Labor-->
+  <DBO name="pbs_SC_WO_LABOR_{XXX}" type="U">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id=OBJECT_ID(N'dbo.[pbs_SC_WO_LABOR_{XXX}]'))
+      BEGIN
+      CREATE TABLE [dbo].[pbs_SC_WO_LABOR_{XXX}](
+      [LINE_NO] [int] IDENTITY(1,1) NOT NULL,
+      [WO_ID] [int] NOT NULL,
+      [SERVICE_CODE] [varchar](15) NOT NULL,
+      [DESCRIPTN] [nvarchar](100) NOT NULL,
+      [ASSIGN_TO] [varchar](50) NOT NULL,
+      [WORKING_HOURS] [numeric](18, 1) NOT NULL,
+      [RATE] [numeric](18, 2) NOT NULL,
+      [CONV_CODE] [char](5) NOT NULL,
+      [CONV_RATE] [decimal](18, 9) NOT NULL,
+      [TRANS_AMT] [decimal](18, 2) NOT NULL,
+      [AMOUNT] [decimal](18, 2) NOT NULL,
+      [VALUE1] [numeric](18, 2) NOT NULL,
+      [VALUE2] [numeric](18, 2) NOT NULL,
+      [VALUE3] [numeric](18, 2) NOT NULL,
+      [VALUE4] [numeric](18, 2) NOT NULL,
+      [VALUE5] [numeric](18, 2) NOT NULL,
+      [CHARGE] [char](1) NOT NULL,
+      [NOTES] [nvarchar](100) NOT NULL,
+      [UPDATED] [int] NOT NULL,
+      [UPDATE_BY] [varchar](15) NOT NULL,
+      [TIME_STAMP] [timestamp] NULL,
+      CONSTRAINT [PK_pbs_SC_WO_LABOR] PRIMARY KEY CLUSTERED
+      (
+      [LINE_NO] ASC
+      )
+      )
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_SC_WO_LABOR_{XXX}_Insert" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[pbs_SC_WO_LABOR_{XXX}_Insert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [pbs_SC_WO_LABOR_{XXX}_Insert]
+      @LINE_NO int output,
+      @WO_ID int,
+      @SERVICE_CODE varchar(15),
+      @DESCRIPTN nvarchar (100),
+      @ASSIGN_TO varchar(50),
+      @WORKING_HOURS numeric(18, 1),
+      @RATE numeric(18, 2),
+      @CONV_CODE char(5),
+      @CONV_RATE decimal(18, 9),
+      @TRANS_AMT decimal(18, 2),
+      @AMOUNT decimal(18, 2),
+      @VALUE1 numeric(18, 2),
+      @VALUE2 numeric(18, 2),
+      @VALUE3 numeric(18, 2),
+      @VALUE4 numeric(18, 2),
+      @VALUE5 numeric(18, 2),
+      @CHARGE char(1),
+      @NOTES nvarchar (100),
+      @UPDATED int,
+      @UPDATE_BY varchar(15)
+      AS
+
+      SET NOCOUNT ON
+      INSERT INTO [pbs_SC_WO_LABOR_{XXX}] ([WO_ID],
+      [SERVICE_CODE],
+      [DESCRIPTN],
+      [ASSIGN_TO],
+      [WORKING_HOURS],
+      [RATE],
+      [CONV_CODE],
+      [CONV_RATE],
+      [TRANS_AMT],
+      [AMOUNT],
+      [VALUE1],
+      [VALUE2],
+      [VALUE3],
+      [VALUE4],
+      [VALUE5],
+      [CHARGE],
+      [NOTES],
+      [UPDATED],
+      [UPDATE_BY])
+      VALUES (@WO_ID,
+      @SERVICE_CODE,
+      @DESCRIPTN,
+      @ASSIGN_TO,
+      @WORKING_HOURS,
+      @RATE,
+      @CONV_CODE,
+      @CONV_RATE,
+      @TRANS_AMT,
+      @AMOUNT,
+      @VALUE1,
+      @VALUE2,
+      @VALUE3,
+      @VALUE4,
+      @VALUE5,
+      @CHARGE,
+      @NOTES,
+      @UPDATED,
+      @UPDATE_BY)
+
+      SET @LINE_NO = SCOPE_IDENTITY()
+
+      '
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_SC_WO_LABOR_{XXX}_Update" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[pbs_SC_WO_LABOR_{XXX}_Update]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [pbs_SC_WO_LABOR_{XXX}_Update]
+      @LINE_NO int,
+      @WO_ID int,
+      @SERVICE_CODE varchar(15),
+      @DESCRIPTN nvarchar (100),
+      @ASSIGN_TO varchar(50),
+      @WORKING_HOURS numeric(18, 1),
+      @RATE numeric(18, 2),
+      @CONV_CODE char(5),
+      @CONV_RATE decimal(18, 9),
+      @TRANS_AMT decimal(18, 2),
+      @AMOUNT decimal(18, 2),
+      @VALUE1 numeric(18, 2),
+      @VALUE2 numeric(18, 2),
+      @VALUE3 numeric(18, 2),
+      @VALUE4 numeric(18, 2),
+      @VALUE5 numeric(18, 2),
+      @CHARGE char(1),
+      @NOTES nvarchar (100),
+      @UPDATED int,
+      @UPDATE_BY varchar(15)
+      AS
+
+      SET NOCOUNT ON
+      UPDATE [pbs_SC_WO_LABOR_{XXX}] SET [WO_ID] = @WO_ID,
+      [SERVICE_CODE] = @SERVICE_CODE,
+      [DESCRIPTN] = @DESCRIPTN,
+      [ASSIGN_TO] = @ASSIGN_TO,
+      [WORKING_HOURS] = @WORKING_HOURS,
+      [RATE] = @RATE,
+      [CONV_CODE] = @CONV_CODE,
+      [CONV_RATE] = @CONV_RATE,
+      [TRANS_AMT] = @TRANS_AMT,
+      [AMOUNT] = @AMOUNT,
+      [VALUE1] = @VALUE1,
+      [VALUE2] = @VALUE2,
+      [VALUE3] = @VALUE3,
+      [VALUE4] = @VALUE4,
+      [VALUE5] = @VALUE5,
+      [CHARGE] = @CHARGE,
+      [NOTES] = @NOTES,
+      [UPDATED] = @UPDATED,
+      [UPDATE_BY] = @UPDATE_BY
+      WHERE [LINE_NO] = @LINE_NO
+      '
+      END
+    </Install>
+  </DBO>
+
+  <!--Work Order Parts-->
+  <DBO name="pbs_SC_WO_PARTS_{XXX}" type="U">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id=OBJECT_ID(N'dbo.[pbs_SC_WO_PARTS_{XXX}]'))
+      BEGIN
+      CREATE TABLE [dbo].[pbs_SC_WO_PARTS_{XXX}](
+      [LINE_NO] [int] IDENTITY(1,1) NOT NULL,
+      [WO_ID] [int] NOT NULL,
+      [ITEM_CODE] [varchar](15) NOT NULL,
+      [LOCATION] [varchar](15) NOT NULL,
+      [ISSUE_DATE] [int] NOT NULL,
+      [ISSUE_BY] [varchar](15) NOT NULL,
+      [PART_NO] [nvarchar](50) NOT NULL,
+      [DESCRIPTN] [nvarchar](100) NOT NULL,
+      [UNIT] [nchar](10) NOT NULL,
+      [QTY] [numeric](18, 5) NOT NULL,
+      [CONV_CODE] [char](5) NOT NULL,
+      [CONV_RATE] [decimal](18, 9) NOT NULL,
+      [TRANS_AMT] [decimal](18, 2) NOT NULL,
+      [AMOUNT] [decimal](18, 2) NOT NULL,
+      [VALUE1] [numeric](18, 2) NOT NULL,
+      [VALUE2] [numeric](18, 2) NOT NULL,
+      [VALUE3] [numeric](18, 2) NOT NULL,
+      [VALUE4] [numeric](18, 2) NOT NULL,
+      [VALUE5] [numeric](18, 2) NOT NULL,
+      [CHARGE] [char](1) NOT NULL,
+      [NOTES] [nvarchar](100) NOT NULL,
+      [UPDATED] [int] NOT NULL,
+      [UPDATE_BY] [varchar](15) NOT NULL,
+      [TIME_STAMP] [timestamp] NULL,
+      CONSTRAINT [PK_pbs_SC_WO_PARTS_{XXX}] PRIMARY KEY CLUSTERED
+      (
+      [LINE_NO] ASC
+      )
+      )
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_SC_WO_PARTS_{XXX}_Insert" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[pbs_SC_WO_PARTS_{XXX}_Insert]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [pbs_SC_WO_PARTS_{XXX}_Insert]
+      @LINE_NO int output,
+      @WO_ID int,
+      @ITEM_CODE varchar(15),
+      @LOCATION varchar(15),
+      @ISSUE_DATE int,
+      @ISSUE_BY varchar(15),
+      @PART_NO nvarchar (50),
+      @DESCRIPTN nvarchar (100),
+      @UNIT nchar (10),
+      @QTY numeric(18, 5),
+      @CONV_CODE char(5),
+      @CONV_RATE decimal(18, 9),
+      @TRANS_AMT decimal(18, 2),
+      @AMOUNT decimal(18, 2),
+      @VALUE1 numeric(18, 2),
+      @VALUE2 numeric(18, 2),
+      @VALUE3 numeric(18, 2),
+      @VALUE4 numeric(18, 2),
+      @VALUE5 numeric(18, 2),
+      @CHARGE char(1),
+      @NOTES nvarchar (100),
+      @UPDATED int,
+      @UPDATE_BY varchar(15)
+      AS
+
+      SET NOCOUNT ON
+      INSERT INTO [pbs_SC_WO_PARTS_{XXX}] ([WO_ID],
+      [ITEM_CODE],
+      [LOCATION],
+      [ISSUE_DATE],
+      [ISSUE_BY],
+      [PART_NO],
+      [DESCRIPTN],
+      [UNIT],
+      [QTY],
+      [CONV_CODE],
+      [CONV_RATE],
+      [TRANS_AMT],
+      [AMOUNT],
+      [VALUE1],
+      [VALUE2],
+      [VALUE3],
+      [VALUE4],
+      [VALUE5],
+      [CHARGE],
+      [NOTES],
+      [UPDATED],
+      [UPDATE_BY])
+      VALUES (@WO_ID,
+      @ITEM_CODE,
+      @LOCATION,
+      @ISSUE_DATE,
+      @ISSUE_BY,
+      @PART_NO,
+      @DESCRIPTN,
+      @UNIT,
+      @QTY,
+      @CONV_CODE,
+      @CONV_RATE,
+      @TRANS_AMT,
+      @AMOUNT,
+      @VALUE1,
+      @VALUE2,
+      @VALUE3,
+      @VALUE4,
+      @VALUE5,
+      @CHARGE,
+      @NOTES,
+      @UPDATED,
+      @UPDATE_BY)
+
+      SET @LINE_NO = SCOPE_IDENTITY()
+
+      '
+      END
+    </Install>
+  </DBO>
+  <DBO name="pbs_SC_WO_PARTS_{XXX}_Update" type="P">
+    <Install>
+      IF NOT EXISTS (SELECT * FROM dbo.sysobjects WHERE id = OBJECT_ID(N'[pbs_SC_WO_PARTS_{XXX}_Update]') AND OBJECTPROPERTY(id,N'IsProcedure') = 1)
+      BEGIN
+      EXEC dbo.sp_executesql @statement = N'
+      CREATE PROCEDURE [pbs_SC_WO_PARTS_{XXX}_Update]
+      @LINE_NO int,
+      @WO_ID int,
+      @ITEM_CODE varchar(15),
+      @LOCATION varchar(15),
+      @ISSUE_DATE int,
+      @ISSUE_BY varchar(15),
+      @PART_NO nvarchar (50),
+      @DESCRIPTN nvarchar (100),
+      @UNIT nchar (10),
+      @QTY numeric(18, 5),
+      @CONV_CODE char(5),
+      @CONV_RATE decimal(18, 9),
+      @TRANS_AMT decimal(18, 2),
+      @AMOUNT decimal(18, 2),
+      @VALUE1 numeric(18, 2),
+      @VALUE2 numeric(18, 2),
+      @VALUE3 numeric(18, 2),
+      @VALUE4 numeric(18, 2),
+      @VALUE5 numeric(18, 2),
+      @CHARGE char(1),
+      @NOTES nvarchar (100),
+      @UPDATED int,
+      @UPDATE_BY varchar(15)
+      AS
+
+      SET NOCOUNT ON
+      UPDATE [pbs_SC_WO_PARTS_{XXX}] SET [WO_ID] = @WO_ID,
+      [ITEM_CODE] = @ITEM_CODE,
+      [LOCATION] = @LOCATION,
+      [ISSUE_DATE] = @ISSUE_DATE,
+      [ISSUE_BY] = @ISSUE_BY,
+      [PART_NO] = @PART_NO,
+      [DESCRIPTN] = @DESCRIPTN,
+      [UNIT] = @UNIT,
+      [QTY] = @QTY,
+      [CONV_CODE] = @CONV_CODE,
+      [CONV_RATE] = @CONV_RATE,
+      [TRANS_AMT] = @TRANS_AMT,
+      [AMOUNT] = @AMOUNT,
+      [VALUE1] = @VALUE1,
+      [VALUE2] = @VALUE2,
+      [VALUE3] = @VALUE3,
+      [VALUE4] = @VALUE4,
+      [VALUE5] = @VALUE5,
+      [CHARGE] = @CHARGE,
+      [NOTES] = @NOTES,
+      [UPDATED] = @UPDATED,
+      [UPDATE_BY] = @UPDATE_BY
+      WHERE [LINE_NO] = @LINE_NO
+      '
+      END
+    </Install>
+  </DBO>
+</Root>
